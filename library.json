@@ -1,0 +1,21 @@
+{
+  "title": "Picture Slide",
+  "description": "Picture Slide, helper library for images used in picture carousels and similar. Can render images with sizing options",
+  "majorVersion": 1,
+  "minorVersion": 0,
+  "patchVersion": 0,
+  "runnable": 1,
+  "author": "Falcon",
+  "license": "MIT",
+  "machineName": "H5P.PictuSlide",
+  "preloadedJs": [
+    {
+      "path": "pictuslide.js"
+    }
+  ],
+  "preloadedCss": [
+    {
+      "path": "pictuslide.css"
+    }
+  ]
+}

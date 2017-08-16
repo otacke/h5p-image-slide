@@ -1,0 +1,10 @@
+[
+  {
+    "label": "Picture",
+    "name": "picture",
+    "type": "library",
+    "options": [
+      "H5P.Image 1.0"
+    ]
+  }
+]
