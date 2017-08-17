@@ -66,8 +66,9 @@ H5P.PictuSlide = (function ($) {
   C.prototype.adjustSize = function() {
     var imageHeight = this.options.picture.params.file.height;
     var imageWidth = this.options.picture.params.file.width;
-    var imageAspectRatio = imageWidth /imageHeight;
-    if (this.aspectRatio > imageAspectRatio) {
+
+    var imageAspectRatio = imageWidth / imageHeight;
+    if (this.aspectRatio >= imageAspectRatio) {
       // image too tall - Make it smaller and center it
       var widthInPercent = imageAspectRatio / this.aspectRatio * 100;
       var borderSize = (100 - widthInPercent) / 2 + '%';
