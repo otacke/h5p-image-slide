@@ -47,6 +47,11 @@ H5P.PictuSlide = (function ($) {
     this.adjustSize();
   };
   
+  /**
+   * Set the ascpect ratio for this slide
+   * 
+   * @param {Integer} newAspectRatio the aspect ratio
+   */
   C.prototype.setAspectRatio = function(newAspectRatio) {
     this.aspectRatio = newAspectRatio;
     // Adjust size if image has been attached
@@ -55,6 +60,11 @@ H5P.PictuSlide = (function ($) {
     }
   };
   
+  /**
+   * Reset the aspect ratio to the previously set aspect ratio
+   * 
+   * Typically used when exiting fullscreen mode
+   */
   C.prototype.resetAspectRatio = function() {
     this.aspectRatio = this.originalAspectRatio;
     // Adjust size if image has been attached
@@ -62,7 +72,12 @@ H5P.PictuSlide = (function ($) {
       this.adjustSize();
     }
   };
-  
+
+  /**
+   * Update the size of the slide
+   * 
+   * Typically used when the screen resizes, goes to fullscreen or similar
+   */
   C.prototype.adjustSize = function() {
     var imageHeight = this.options.picture.params.file.height;
     var imageWidth = this.options.picture.params.file.width;
