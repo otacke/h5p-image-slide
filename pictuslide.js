@@ -7,6 +7,8 @@ H5P.PictuSlide = (function ($) {
   function C(options, contentId, extras) {
     var self = this;
     this.$ = $(this);
+    H5P.EventDispatcher.call(this);
+
     this.aspectRatio = this.originalAspectRatio = extras.aspectRatio;
     // Extend defaults with provided options
     this.options = $.extend(true, {}, {
@@ -21,6 +23,10 @@ H5P.PictuSlide = (function ($) {
       self.trigger('resize');
     });
   };
+
+  C.prototype = Object.create(H5P.EventDispatcher.prototype);
+  C.prototype.constructor = C;
+
 
   /**
    * Attach function called by H5P framework to insert H5P content into
