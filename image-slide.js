@@ -1,6 +1,6 @@
 var H5P = H5P || {};
 
-H5P.PictuSlide = (function ($) {
+H5P.ImageSlide = (function ($) {
   /**
    * Constructor function.
    */
@@ -12,12 +12,12 @@ H5P.PictuSlide = (function ($) {
     this.aspectRatio = this.originalAspectRatio = extras.aspectRatio;
     // Extend defaults with provided options
     this.options = $.extend(true, {}, {
-      picture: null,
+      image: null,
     }, options);
     // Keep provided id.
     this.contentId = contentId;
     
-    this.image = H5P.newRunnable(this.options.picture, this.contentId);
+    this.image = H5P.newRunnable(this.options.image, this.contentId);
     this.image.on('loaded', function() {
       self.trigger('loaded');
       self.trigger('resize');
@@ -39,15 +39,15 @@ H5P.PictuSlide = (function ($) {
     
     // Set class on container to identify it as a greeting card
     // container.  Allows for styling later.
-    $container.addClass("h5p-pictuslide");
+    $container.addClass("h5p-image-slide");
     
     this.$imageHolder = $('<div>', {
-      class: 'h5p-pictuslide-image-holder',
+      class: 'h5p-image-slide-image-holder',
     });
     
     $container.append(this.$imageHolder);
     
-    // Add picture
+    // Add image
     this.image.attach(this.$imageHolder);
     
     this.adjustSize();
@@ -85,8 +85,8 @@ H5P.PictuSlide = (function ($) {
    * Typically used when the screen resizes, goes to fullscreen or similar
    */
   C.prototype.adjustSize = function() {
-    var imageHeight = this.options.picture.params.file.height;
-    var imageWidth = this.options.picture.params.file.width;
+    var imageHeight = this.options.image.params.file.height;
+    var imageWidth = this.options.image.params.file.width;
 
     var imageAspectRatio = imageWidth / imageHeight;
     if (this.aspectRatio >= imageAspectRatio) {

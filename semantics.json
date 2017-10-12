@@ -1,7 +1,7 @@
 [
   {
-    "label": "Picture",
-    "name": "picture",
+    "label": "Image",
+    "name": "image",
     "type": "library",
     "options": [
       "H5P.Image 1.0"
