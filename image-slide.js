@@ -16,13 +16,13 @@ H5P.ImageSlide = (function ($) {
     }, options);
     // Keep provided id.
     this.contentId = contentId;
-    
+
     this.image = H5P.newRunnable(this.options.image, this.contentId);
     this.image.on('loaded', function() {
       self.trigger('loaded');
       self.trigger('resize');
     });
-  };
+  }
 
   C.prototype = Object.create(H5P.EventDispatcher.prototype);
   C.prototype.constructor = C;
@@ -36,26 +36,26 @@ H5P.ImageSlide = (function ($) {
    */
   C.prototype.attach = function ($container) {
     this.$container = $container;
-    
+
     // Set class on container to identify it as a greeting card
     // container.  Allows for styling later.
     $container.addClass("h5p-image-slide");
-    
+
     this.$imageHolder = $('<div>', {
       class: 'h5p-image-slide-image-holder',
     });
-    
+
     $container.append(this.$imageHolder);
-    
+
     // Add image
     this.image.attach(this.$imageHolder);
-    
+
     this.adjustSize();
   };
-  
+
   /**
    * Set the ascpect ratio for this slide
-   * 
+   *
    * @param {Integer} newAspectRatio the aspect ratio
    */
   C.prototype.setAspectRatio = function(newAspectRatio) {
@@ -65,10 +65,10 @@ H5P.ImageSlide = (function ($) {
       this.adjustSize();
     }
   };
-  
+
   /**
    * Reset the aspect ratio to the previously set aspect ratio
-   * 
+   *
    * Typically used when exiting fullscreen mode
    */
   C.prototype.resetAspectRatio = function() {
@@ -81,7 +81,7 @@ H5P.ImageSlide = (function ($) {
 
   /**
    * Update the size of the slide
-   * 
+   *
    * Typically used when the screen resizes, goes to fullscreen or similar
    */
   C.prototype.adjustSize = function() {
@@ -105,10 +105,10 @@ H5P.ImageSlide = (function ($) {
     else if (this.aspectRatio < imageAspectRatio) {
       // image too wide
       var heightInPercent = this.aspectRatio / imageAspectRatio * 100;
-      
+
       // Note: divide by aspect ratio since padding top/bottom is relative to width
       var borderSize = (100 - heightInPercent) / 2 / this.aspectRatio + '%';
-    
+
       this.$imageHolder.css({
         width: '100%',
         height: heightInPercent + '%',
@@ -128,8 +128,7 @@ H5P.ImageSlide = (function ($) {
         paddingRight: 0
       });
     }
-    
-  }
+  };
 
   return C;
 })(H5P.jQuery);
